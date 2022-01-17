@@ -1,6 +1,10 @@
 const router = require('express').Router()
 const path = require('path')
 
+//debug
+const routesDebug = require('debug')('provider:routes');
+routesDebug('in routes.js')
+
 // Requiring Ltijs
 const lti = require('ltijs').Provider
 
@@ -62,14 +66,24 @@ router.get('/members', async (req, res) => {
 router.post('/deeplink', async (req, res) => {
   try {
     const resource = req.body
+	routesDebug('routes.js -> /deeplink')
+	//routesDebug('req: \n')
+	//routesDebug(req)
+	//routesDebug('res: \n')
+	//routesDebug(res)
 
-    const items = {
-      type: 'ltiResourceLink',
-      title: 'Ltijs Demo',
-      custom: {
-        name: resource.name,
-        value: resource.value
-      }
+//    const items = {
+//      type: 'ltiResourceLink',
+//      title: 'Ltijs Demo',
+//      custom: {
+//        name: resource.name,
+//        value: resource.value
+//      }
+	const items = {
+      type: 'html',
+	  html: '<a href="https://www.google.ca/" target="_blank" style="background-color: #1c87c9; border: none; color: white; padding: 20px 34px; text-align: center; text-decoration: none; display: inline-block; font-size: 20px; margin: 4px 2px; cursor: pointer; border-radius: 10px;" rel="noopener">Google</a>',
+      title: 'Custom Button',
+      text: 'This tool inserts a custom button'
     }
 
     const form = await lti.DeepLinking.createDeepLinkingForm(res.locals.token, items, { message: 'Successfully Registered' })
@@ -83,6 +97,7 @@ router.post('/deeplink', async (req, res) => {
 
 // Return available deep linking resources
 router.get('/resources', async (req, res) => {
+  routesDebug('routes.js -> /resources')
   const resources = [
     {
       name: 'Resource1',
