@@ -62,7 +62,7 @@ router.get('/members', async (req, res) => {
   }
 })
 
-// Deep linking route
+// Deep linking route (2nd)
 router.post('/deeplink', async (req, res) => {
   try {
     const resource = req.body
@@ -95,7 +95,7 @@ router.post('/deeplink', async (req, res) => {
   }
 })
 
-// Return available deep linking resources
+// Return available deep linking resources (1st)
 router.get('/resources', async (req, res) => {
   routesDebug('routes.js -> /resources')
   const resources = [
