@@ -79,9 +79,33 @@ router.post('/deeplink', async (req, res) => {
 //        name: resource.name,
 //        value: resource.value
 //      }
+//	const items = {
+//      type: 'html',
+//	  html: '<a href="https://www.google.ca/" target="_blank" style="background-color: #1c87c9; border: none; color: white; padding: 20px 34px; text-align: center; text-decoration: none; display: inline-block; font-size: 20px; margin: 4px 2px; cursor: pointer; border-radius: 10px;" rel="noopener">Google</a>',
+//      title: 'Custom Button',
+//      text: 'This tool inserts a custom button'
+//    }
+	const style = 'width: ' + resource.buttonStyle.width + 
+		'; height: ' + resource.buttonStyle.height + 
+        '; background-color: ' + resource.buttonStyle.backgroundColor +
+        '; border: ' + resource.buttonStyle.border +
+        '; color: ' + resource.buttonStyle.color +
+        '; border-radius: ' + resource.buttonStyle.borderRadius +
+        '; padding: ' + resource.buttonStyle.padding +
+        '; text-align: ' + resource.buttonStyle.textAlign +
+        '; text-decoration: ' + resource.buttonStyle.textDecoration +
+        '; font-size: ' + resource.buttonStyle.fontSize +
+        '; display: ' + resource.buttonStyle.display +
+        '; flex-direction: ' + resource.buttonStyle.flexDirection +
+        '; justify-content: ' + resource.buttonStyle.justifyContent +
+        '; cursor: ' + resource.buttonStyle.cursor +
+		';';
+	  
+	const html = '<a href="' + resource.linkText + '" target="_blank" style="' + style + '" rel="noopener">' + resource.buttonText + '</a>';
+
 	const items = {
       type: 'html',
-	  html: '<a href="https://www.google.ca/" target="_blank" style="background-color: #1c87c9; border: none; color: white; padding: 20px 34px; text-align: center; text-decoration: none; display: inline-block; font-size: 20px; margin: 4px 2px; cursor: pointer; border-radius: 10px;" rel="noopener">Google</a>',
+	  html: html,
       title: 'Custom Button',
       text: 'This tool inserts a custom button'
     }
