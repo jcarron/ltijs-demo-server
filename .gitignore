@@ -1,12 +1,5 @@
-node_modules
+/node_modules
 .env
-_notes/dwsync.xml
-src/_notes/dwsync.xml
-public/static/js/_notes/dwsync.xml
-public/static/css/_notes/dwsync.xml
-public/_notes/dwsync.xml
-.vs/bsi2/v17/.suo
-.vs/ProjectSettings.json
-.vs/slnx.sqlite
-public/index - Copy.html
-src/pages/_notes/dwsync.xml
+_notes
+/.vs
+/public/**
